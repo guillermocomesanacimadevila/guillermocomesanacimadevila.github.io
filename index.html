@@ -10,8 +10,8 @@
   <meta property="og:description" content="PhD student at Cardiff University, focusing on machine learning for genetics and disease." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://guillermocomesana.github.io/" />
-  <!-- Add a favicon if desired -->
   <link rel="stylesheet" href="style.css" />
+  <!-- Optional: Add a favicon for extra polish -->
 </head>
 <body>
   <header>
@@ -22,15 +22,15 @@
         <li><a href="#projects" tabindex="2">Projects</a></li>
         <li><a href="#contact" tabindex="3">Contact</a></li>
       </ul>
+      <button id="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
     </nav>
   </header>
 
   <main>
-    <section id="about" class="section about">
+    <section id="about" class="section about hidden">
       <h1>Hi, I'm Guillermo Comesaña</h1>
       <p>
-        I am a <strong>PhD student in Data Science and Biostatistics at Cardiff University</strong>, passionate about the intersection of machine learning, human genetics, and disease.
-        <br>
+        I am a <strong>PhD student in Data Science and Biostatistics at Cardiff University</strong>, passionate about the intersection of machine learning, human genetics, and disease.<br>
         Welcome to my professional website—here you can find my latest research projects, academic history, and how to contact me.
       </p>
       <div class="unis" aria-label="Universities">
@@ -46,11 +46,11 @@
       </div>
     </section>
 
-    <section id="projects" class="section projects">
+    <section id="projects" class="section projects hidden">
       <h2>Featured Projects</h2>
       <div class="projects-list">
 
-        <div class="project-card">
+        <div class="project-card hidden">
           <h3>
             <a href="https://github.com/guillermocomesanacimadevila/MR-CoPe" target="_blank" rel="noopener">
               MR-CoPe: Automated Mendelian Randomisation Engine
@@ -61,7 +61,7 @@
           </p>
         </div>
 
-        <div class="project-card">
+        <div class="project-card hidden">
           <h3>
             <a href="https://github.com/guillermocomesanacimadevila/PA-Predict" target="_blank" rel="noopener">
               PA-Predict: Machine Learning Pipeline to Diagnose Pernicious Anaemia
@@ -72,14 +72,14 @@
           </p>
         </div>
 
-        <div class="project-card">
+        <div class="project-card hidden">
           <h3>ENIGMA-Pipeline: Working Memory Prediction from sMRI Data</h3>
           <p>
             Machine learning for predicting working memory outcomes from structural MRI data in schizophrenia research. (Internal academic project)
           </p>
         </div>
 
-        <div class="project-card">
+        <div class="project-card hidden">
           <h3>
             <a href="https://github.com/guillermocomesanacimadevila/CELLFLOW" target="_blank" rel="noopener">
               CELLFLOW: Deep Learning for Live-cell Microscopy
@@ -93,7 +93,7 @@
       </div>
     </section>
 
-    <section id="contact" class="section contact">
+    <section id="contact" class="section contact hidden">
       <h2>Contact Me</h2>
       <p>
         The best way to reach me is by email: <a href="mailto:gcc@bath.ac.uk">gcc@bath.ac.uk</a>
