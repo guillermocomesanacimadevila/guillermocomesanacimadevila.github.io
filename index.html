@@ -1,10 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Guly GitHub</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guillermo Comesaña | Personal Website</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Ni idea de si esto functiona!</h1>
-  <p>DI-ablo!</p>
+  <header>
+    <nav>
+      <div class="logo">Guillermo Comesaña</div>
+      <ul class="nav-links">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section id="about">
+      <h1>Hi, I'm Guillermo</h1>
+      <p>
+        I'm a PhD student in Data Science and Biostatistics at Cardiff University, passionate about the intersection of machine learning, human genetics, and disease.<br>
+        Welcome to my personal website—explore my latest projects and feel free to get in touch!
+      </p>
+      <div class="unis">
+        <a href="https://www.cardiff.ac.uk/" target="_blank" title="Cardiff University">
+          <img src="images/cardiff.png" alt="Cardiff University Logo" class="uni-logo"/>
+        </a>
+        <a href="https://www.bath.ac.uk/" target="_blank" title="University of Bath">
+          <img src="images/bath.png" alt="University of Bath Logo" class="uni-logo"/>
+        </a>
+        <a href="https://www.surrey.ac.uk/" target="_blank" title="University of Surrey">
+          <img src="images/surrey.png" alt="University of Surrey Logo" class="uni-logo"/>
+        </a>
+      </div>
+    </section>
+    
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <div class="projects-list">
+        <!-- Example project card -->
+        <div class="project-card">
+          <h3>Project Title</h3>
+          <p>Short description of your project goes here.</p>
+          <a href="#" target="_blank">View Project</a>
+        </div>
+        <!-- Add more project cards as needed -->
+      </div>
+    </section>
+    
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>
+        Feel free to email me at <a href="mailto:gcc@bath.ac.uk">gcc@bath.ac.uk</a>
+      </p>
+      <!-- You can remove the form if you want, or keep it as a secondary way to contact -->
+      <!--
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+      -->
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Guillermo Comesaña. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
