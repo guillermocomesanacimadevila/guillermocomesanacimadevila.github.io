@@ -2,72 +2,106 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Guillermo Comesaña | Personal Website</title>
+  <meta name="description" content="PhD student in Data Science and Biostatistics at Cardiff University. Research at the intersection of machine learning, human genetics, and disease.">
+  <meta name="author" content="Guillermo Comesaña" />
+  <meta property="og:title" content="Guillermo Comesaña | Data Science & Biostatistics" />
+  <meta property="og:description" content="PhD student at Cardiff University, focusing on machine learning for genetics and disease." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://guillermocomesana.github.io/" />
+  <!-- Add a favicon if desired -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <nav>
+    <nav class="navbar">
       <div class="logo">Guillermo Comesaña</div>
       <ul class="nav-links">
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about" tabindex="1">About Me</a></li>
+        <li><a href="#projects" tabindex="2">Projects</a></li>
+        <li><a href="#contact" tabindex="3">Contact</a></li>
       </ul>
     </nav>
   </header>
-  
+
   <main>
-    <section id="about">
-      <h1>Hi, I'm Guillermo</h1>
+    <section id="about" class="section about">
+      <h1>Hi, I'm Guillermo Comesaña</h1>
       <p>
-        I'm a PhD student in Data Science and Biostatistics at Cardiff University, passionate about the intersection of machine learning, human genetics, and disease.<br>
-        Welcome to my personal website—explore my latest projects and feel free to get in touch!
+        I am a <strong>PhD student in Data Science and Biostatistics at Cardiff University</strong>, passionate about the intersection of machine learning, human genetics, and disease.
+        <br>
+        Welcome to my professional website—here you can find my latest research projects, academic history, and how to contact me.
       </p>
-      <div class="unis">
-        <a href="https://www.cardiff.ac.uk/" target="_blank" title="Cardiff University">
-          <img src="images/cardiff.png" alt="Cardiff University Logo" class="uni-logo"/>
+      <div class="unis" aria-label="Universities">
+        <a href="https://www.cardiff.ac.uk/" target="_blank" rel="noopener" title="Cardiff University">
+          <img src="images/cardiff.png" alt="Cardiff University Logo" class="uni-logo" />
         </a>
-        <a href="https://www.bath.ac.uk/" target="_blank" title="University of Bath">
-          <img src="images/bath.png" alt="University of Bath Logo" class="uni-logo"/>
+        <a href="https://www.bath.ac.uk/" target="_blank" rel="noopener" title="University of Bath">
+          <img src="images/bath.png" alt="University of Bath Logo" class="uni-logo" />
         </a>
-        <a href="https://www.surrey.ac.uk/" target="_blank" title="University of Surrey">
-          <img src="images/surrey.png" alt="University of Surrey Logo" class="uni-logo"/>
+        <a href="https://www.surrey.ac.uk/" target="_blank" rel="noopener" title="University of Surrey">
+          <img src="images/surrey.png" alt="University of Surrey Logo" class="uni-logo" />
         </a>
       </div>
     </section>
-    
-    <section id="projects">
+
+    <section id="projects" class="section projects">
       <h2>Featured Projects</h2>
       <div class="projects-list">
-        <!-- Example project card -->
+
         <div class="project-card">
-          <h3>Project Title</h3>
-          <p>Short description of your project goes here.</p>
-          <a href="#" target="_blank">View Project</a>
+          <h3>
+            <a href="https://github.com/guillermocomesanacimadevila/MR-CoPe" target="_blank" rel="noopener">
+              MR-CoPe: Automated Mendelian Randomisation Engine
+            </a>
+          </h3>
+          <p>
+            A comprehensive toolkit for automated Mendelian Randomisation analysis, designed to streamline causal inference in genetic epidemiology.
+          </p>
         </div>
-        <!-- Add more project cards as needed -->
+
+        <div class="project-card">
+          <h3>
+            <a href="https://github.com/guillermocomesanacimadevila/PA-Predict" target="_blank" rel="noopener">
+              PA-Predict: Machine Learning Pipeline to Diagnose Pernicious Anaemia
+            </a>
+          </h3>
+          <p>
+            A robust machine learning pipeline to support the diagnosis of Pernicious Anaemia from clinical and laboratory data.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <h3>ENIGMA-Pipeline: Working Memory Prediction from sMRI Data</h3>
+          <p>
+            Machine learning for predicting working memory outcomes from structural MRI data in schizophrenia research. (Internal academic project)
+          </p>
+        </div>
+
+        <div class="project-card">
+          <h3>
+            <a href="https://github.com/guillermocomesanacimadevila/CELLFLOW" target="_blank" rel="noopener">
+              CELLFLOW: Deep Learning for Live-cell Microscopy
+            </a>
+          </h3>
+          <p>
+            Self-supervised representation learning and U-Net classifier for identifying apoptosis and mitosis from spatiotemporal live-cell microscopy.
+          </p>
+        </div>
+
       </div>
     </section>
-    
-    <section id="contact">
+
+    <section id="contact" class="section contact">
       <h2>Contact Me</h2>
       <p>
-        Feel free to email me at <a href="mailto:gcc@bath.ac.uk">gcc@bath.ac.uk</a>
+        The best way to reach me is by email: <a href="mailto:gcc@bath.ac.uk">gcc@bath.ac.uk</a>
       </p>
-      <!-- You can remove the form if you want, or keep it as a secondary way to contact -->
-      <!--
-      <form id="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-      -->
+      <!-- Optionally, you could add LinkedIn, Twitter, or other professional links here -->
     </section>
   </main>
-  
+
   <footer>
     <p>&copy; 2025 Guillermo Comesaña. All rights reserved.</p>
   </footer>
