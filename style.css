@@ -23,6 +23,10 @@
   --project-border: #ffe66d;
 }
 
+/* Animations: Reveal on Scroll */
+.hidden { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+.show { opacity: 1 !important; transform: none !important; }
+
 /* Global & Body */
 html {
   scroll-behavior: smooth;
@@ -35,6 +39,7 @@ body {
   display: flex;
   flex-direction: column;
   transition: var(--transition);
+  font-size: 18px;
 }
 
 /* Navbar */
@@ -75,6 +80,7 @@ header {
   letter-spacing: 0.01em;
   position: relative;
   transition: var(--transition);
+  outline: none;
 }
 .nav-links a::after {
   content: '';
@@ -104,10 +110,13 @@ header {
   color: var(--accent);
   cursor: pointer;
   transition: var(--transition);
+  outline: none;
 }
 #dark-mode-toggle:hover,
 #dark-mode-toggle:focus {
   color: var(--logo);
+  background: rgba(92,170,255,0.08);
+  border-radius: 50%;
 }
 
 /* Main Section Card */
