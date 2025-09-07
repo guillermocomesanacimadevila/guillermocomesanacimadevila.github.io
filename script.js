@@ -1,9 +1,8 @@
-// ————— Theme (system-pref + toggle) —————
+// Theme (system-pref + toggle)
 const root = document.documentElement;
 const themeToggle = document.getElementById('dark-mode-toggle');
 const storedTheme = localStorage.getItem('theme');
 const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
 root.dataset.theme = storedTheme || (systemDark ? 'dark' : 'light');
 themeToggle.textContent = root.dataset.theme === 'dark' ? '☀️' : '🌙';
 themeToggle.addEventListener('click', () => {
@@ -13,7 +12,7 @@ themeToggle.addEventListener('click', () => {
   themeToggle.textContent = next === 'dark' ? '☀️' : '🌙';
 });
 
-// ————— Smooth scroll for in-page links with focus management —————
+// Smooth scroll + focus
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', e => {
     const id = anchor.getAttribute('href');
@@ -21,13 +20,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (!target) return;
     e.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    // Move focus for accessibility
     target.setAttribute('tabindex', '-1');
     target.focus({ preventScroll: true });
   });
 });
 
-// ————— Reveal on scroll (IntersectionObserver) —————
+// Reveal on scroll
 const io = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -38,38 +36,38 @@ const io = new IntersectionObserver(entries => {
 }, { threshold: 0.18 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-// ————— Dynamic year —————
+// Dynamic year
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ————— Projects data & rendering —————
+// Projects data & rendering
 const projects = [
   {
     title: "MR-CoPe: Automated Mendelian Randomisation Engine",
-    desc: "A comprehensive toolkit for automated Mendelian Randomisation analysis, designed to streamline causal inference in genetic epidemiology.",
+    desc: "A comprehensive toolkit for automated MR to streamline causal inference in genetic epidemiology.",
     tags: ["ml","genetics","infra"],
     repo: "https://github.com/guillermocomesanacimadevila/MR-CoPe",
     docs: "https://github.com/guillermocomesanacimadevila/MR-CoPe#readme"
   },
   {
-    title: "PA-Predict: Machine Learning Pipeline to Diagnose Pernicious Anaemia",
-    desc: "A robust machine learning pipeline to support the diagnosis of Pernicious Anaemia from clinical and laboratory data.",
+    title: "PA-Predict: Diagnose Pernicious Anaemia",
+    desc: "Robust ML pipeline to support diagnosis from clinical and laboratory data.",
     tags: ["ml"],
     repo: "https://github.com/guillermocomesanacimadevila/PA-Predict",
     docs: "https://github.com/guillermocomesanacimadevila/PA-Predict#readme"
   },
   {
-    title: "ENIGMA-Pipeline: Working Memory Prediction from sMRI Data",
-    desc: "Machine learning for predicting working memory outcomes from structural MRI data in schizophrenia research. (Internal academic project)",
+    title: "ENIGMA-Pipeline: sMRI → Working Memory",
+    desc: "Predicting working memory outcomes from structural MRI in schizophrenia research. (Internal project)",
     tags: ["ml"],
     repo: "#",
     docs: "#"
   },
   {
-    title: "EDITS: Deep Learning for Live-cell Microscopy",
-    desc: "Self-supervised representation learning and U-Net classifier for identifying apoptosis and mitosis from spatiotemporal live-cell microscopy.",
+    title: "CELLFLOW: Live-cell Microscopy",
+    desc: "Self-supervised reps + U-Net for apoptosis/mitosis from spatiotemporal live-cell microscopy.",
     tags: ["ml","infra"],
-    repo: "https://github.com/guillermocomesanacimadevila/EDITS",
-    docs: "https://github.com/guillermocomesanacimadevila/EDITS#readme"
+    repo: "https://github.com/guillermocomesanacimadevila/CELLFLOW",
+    docs: "https://github.com/guillermocomesanacimadevila/CELLFLOW#readme"
   }
 ];
 
