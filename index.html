@@ -3,24 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Guillermo Comesaña | Data Science & Biostatistics</title>
-  <meta name="description" content="PhD student in Data Science & Biostatistics at Cardiff University. Research at the intersection of machine learning, human genetics, and disease." />
+  <meta name="description" content="PhD student in Data Science & Biostatistics at Cardiff University. Machine learning × human genetics × disease." />
   <meta name="author" content="Guillermo Comesaña" />
 
-  <!-- Open Graph -->
+  <!-- Favicons -->
+  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="icons/favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+  <!-- Social preview -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Guillermo Comesaña | Data Science & Biostatistics" />
-  <meta property="og:description" content="PhD student at Cardiff University, focusing on machine learning for genetics and disease." />
+  <meta property="og:description" content="PhD student at Cardiff University. Machine learning × human genetics × disease." />
   <meta property="og:url" content="https://guillermocomesana.github.io/" />
   <meta property="og:image" content="images/og-card.png" />
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#0f172a" />
 
   <link rel="stylesheet" href="style.css" />
-  <!-- Optional favicons -->
-  <!-- <link rel="icon" href="images/favicon.png" sizes="32x32"> -->
   <noscript><style>.reveal,.fade-in{opacity:1;transform:none}</style></noscript>
 </head>
 <body>
@@ -31,7 +32,7 @@
       <a class="logo" href="/" aria-label="Home">Guillermo Comesaña</a>
       <button id="dark-mode-toggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
       <ul class="nav-links">
-        <li><a href="#about" tabindex="1">About Me</a></li>
+        <li><a href="#about" tabindex="1">About</a></li>
         <li><a href="#projects" tabindex="2">Projects</a></li>
         <li><a href="#contact" tabindex="3">Contact</a></li>
       </ul>
@@ -69,11 +70,11 @@
 
     <!-- ABOUT -->
     <section id="about" class="section about reveal" aria-labelledby="about-title">
-      <h2 id="about-title">About Me</h2>
+      <h2 id="about-title">About</h2>
       <p>
-        I am a <strong>PhD student in Data Science and Biostatistics at Cardiff University</strong>, passionate about the intersection
-        of machine learning, human genetics, and disease. Welcome to my professional website—find my latest research projects,
-        academic history, and how to contact me.
+        I am a <strong>PhD student in Data Science and Biostatistics at Cardiff University</strong>, passionate about
+        the intersection of machine learning, human genetics, and disease. Here you’ll find my latest research projects
+        and how to contact me.
       </p>
       <div class="unis" aria-label="Universities">
         <a href="https://www.cardiff.ac.uk/" target="_blank" rel="noopener" title="Cardiff University">
@@ -91,6 +92,7 @@
     <!-- PROJECTS -->
     <section id="projects" class="section projects reveal" aria-labelledby="projects-title">
       <h2 id="projects-title">Featured Projects</h2>
+
       <div class="filters" role="group" aria-label="Filter projects">
         <button class="chip is-active" data-filter="all">All</button>
         <button class="chip" data-filter="ml">ML</button>
@@ -98,9 +100,7 @@
         <button class="chip" data-filter="infra">Tooling</button>
       </div>
 
-      <div class="projects-list" id="projects-grid">
-        <!-- Cards will be rendered by script.js -->
-      </div>
+      <div class="projects-list" id="projects-grid"></div>
 
       <template id="project-card-template">
         <article class="project-card" tabindex="0">
@@ -117,12 +117,8 @@
 
     <!-- CONTACT -->
     <section id="contact" class="section contact reveal" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact Me</h2>
-      <p>
-        The best way to reach me is by email:
-        <a href="mailto:gcc@bath.ac.uk">gcc@bath.ac.uk</a>
-      </p>
-      <!-- Add LinkedIn / Scholar if you like -->
+      <h2 id="contact-title">Contact</h2>
+      <p>Best way to reach me: <a href="mailto:gcc@bath.ac.uk">gcc@bath.ac.uk</a></p>
     </section>
   </main>
 
