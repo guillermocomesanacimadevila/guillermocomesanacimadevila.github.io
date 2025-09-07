@@ -1,140 +1,103 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Guillermo Comesaña | Data Science & Biostatistics</title>
-  <meta name="description" content="PhD student in Data Science & Biostatistics at Cardiff University. Research at the intersection of machine learning, human genetics, and disease." />
-  <meta name="author" content="Guillermo Comesaña" />
+// ————— Theme (system-pref + toggle) —————
+const root = document.documentElement;
+const themeToggle = document.getElementById('dark-mode-toggle');
+const storedTheme = localStorage.getItem('theme');
+const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Guillermo Comesaña | Data Science & Biostatistics" />
-  <meta property="og:description" content="PhD student at Cardiff University, focusing on machine learning for genetics and disease." />
-  <meta property="og:url" content="https://guillermocomesana.github.io/" />
-  <meta property="og:image" content="images/og-card.png" />
+root.dataset.theme = storedTheme || (systemDark ? 'dark' : 'light');
+themeToggle.textContent = root.dataset.theme === 'dark' ? '☀️' : '🌙';
+themeToggle.addEventListener('click', () => {
+  const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+  root.dataset.theme = next;
+  localStorage.setItem('theme', next);
+  themeToggle.textContent = next === 'dark' ? '☀️' : '🌙';
+});
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#0f172a" />
+// ————— Smooth scroll for in-page links with focus management —————
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', e => {
+    const id = anchor.getAttribute('href');
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Move focus for accessibility
+    target.setAttribute('tabindex', '-1');
+    target.focus({ preventScroll: true });
+  });
+});
 
-  <link rel="stylesheet" href="style.css" />
-  <!-- Optional favicons -->
-  <!-- <link rel="icon" href="images/favicon.png" sizes="32x32"> -->
-  <noscript><style>.reveal,.fade-in{opacity:1;transform:none}</style></noscript>
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+// ————— Reveal on scroll (IntersectionObserver) —————
+const io = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.18 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  <header class="site-header" role="banner">
-    <nav class="navbar" aria-label="Primary">
-      <a class="logo" href="/" aria-label="Home">Guillermo Comesaña</a>
-      <button id="dark-mode-toggle" class="icon-btn" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
-      <ul class="nav-links">
-        <li><a href="#about" tabindex="1">About Me</a></li>
-        <li><a href="#projects" tabindex="2">Projects</a></li>
-        <li><a href="#contact" tabindex="3">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+// ————— Dynamic year —————
+document.getElementById('year').textContent = new Date().getFullYear();
 
-  <main id="main">
-    <!-- HERO -->
-    <section class="hero fade-in" aria-labelledby="hero-title">
-      <div class="hero-inner">
-        <h1 id="hero-title">Machine learning × human genetics × disease</h1>
-        <p class="lead">
-          I’m <strong>Guillermo Comesaña</strong>, a PhD researcher in Data Science &amp; Biostatistics at Cardiff University.
-          I build tools for causal inference and predictive modelling in genetic epidemiology.
-        </p>
-        <div class="hero-actions">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn" href="mailto:gcc@bath.ac.uk">Email me</a>
-        </div>
-      </div>
-      <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1">
-              <stop offset="0" stop-color="var(--accent)" />
-              <stop offset="1" stop-color="var(--accent-2)" />
-            </linearGradient>
-          </defs>
-          <circle cx="120" cy="80" r="60" fill="url(#g1)" />
-          <circle cx="520" cy="320" r="90" fill="url(#g1)" opacity="0.6" />
-          <rect x="240" y="120" width="160" height="160" rx="24" fill="url(#g1)" opacity="0.35" />
-        </svg>
-      </div>
-    </section>
+// ————— Projects data & rendering —————
+const projects = [
+  {
+    title: "MR-CoPe: Automated Mendelian Randomisation Engine",
+    desc: "A comprehensive toolkit for automated Mendelian Randomisation analysis, designed to streamline causal inference in genetic epidemiology.",
+    tags: ["ml","genetics","infra"],
+    repo: "https://github.com/guillermocomesanacimadevila/MR-CoPe",
+    docs: "https://github.com/guillermocomesanacimadevila/MR-CoPe#readme"
+  },
+  {
+    title: "PA-Predict: Machine Learning Pipeline to Diagnose Pernicious Anaemia",
+    desc: "A robust machine learning pipeline to support the diagnosis of Pernicious Anaemia from clinical and laboratory data.",
+    tags: ["ml"],
+    repo: "https://github.com/guillermocomesanacimadevila/PA-Predict",
+    docs: "https://github.com/guillermocomesanacimadevila/PA-Predict#readme"
+  },
+  {
+    title: "ENIGMA-Pipeline: Working Memory Prediction from sMRI Data",
+    desc: "Machine learning for predicting working memory outcomes from structural MRI data in schizophrenia research. (Internal academic project)",
+    tags: ["ml"],
+    repo: "#",
+    docs: "#"
+  },
+  {
+    title: "EDITS: Deep Learning for Live-cell Microscopy",
+    desc: "Self-supervised representation learning and U-Net classifier for identifying apoptosis and mitosis from spatiotemporal live-cell microscopy.",
+    tags: ["ml","infra"],
+    repo: "https://github.com/guillermocomesanacimadevila/EDITS",
+    docs: "https://github.com/guillermocomesanacimadevila/EDITS#readme"
+  }
+];
 
-    <!-- ABOUT -->
-    <section id="about" class="section about reveal" aria-labelledby="about-title">
-      <h2 id="about-title">About Me</h2>
-      <p>
-        I am a <strong>PhD student in Data Science and Biostatistics at Cardiff University</strong>, passionate about the intersection
-        of machine learning, human genetics, and disease. Welcome to my professional website—find my latest research projects,
-        academic history, and how to contact me.
-      </p>
-      <div class="unis" aria-label="Universities">
-        <a href="https://www.cardiff.ac.uk/" target="_blank" rel="noopener" title="Cardiff University">
-          <img src="images/cardiff.png" alt="Cardiff University Logo" class="uni-logo" loading="lazy" decoding="async" />
-        </a>
-        <a href="https://www.bath.ac.uk/" target="_blank" rel="noopener" title="University of Bath">
-          <img src="images/bath.png" alt="University of Bath Logo" class="uni-logo" loading="lazy" decoding="async" />
-        </a>
-        <a href="https://www.surrey.ac.uk/" target="_blank" rel="noopener" title="University of Surrey">
-          <img src="images/surrey.png" alt="University of Surrey Logo" class="uni-logo" loading="lazy" decoding="async" />
-        </a>
-      </div>
-    </section>
+const grid = document.getElementById('projects-grid');
+const tpl = document.getElementById('project-card-template');
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section projects reveal" aria-labelledby="projects-title">
-      <h2 id="projects-title">Featured Projects</h2>
-      <div class="filters" role="group" aria-label="Filter projects">
-        <button class="chip is-active" data-filter="all">All</button>
-        <button class="chip" data-filter="ml">ML</button>
-        <button class="chip" data-filter="genetics">Genetics</button>
-        <button class="chip" data-filter="infra">Tooling</button>
-      </div>
+function renderProjects(filter = 'all') {
+  grid.innerHTML = '';
+  projects
+    .filter(p => filter === 'all' || p.tags.includes(filter))
+    .forEach(p => {
+      const node = tpl.content.cloneNode(true);
+      node.querySelector('.project-title').textContent = p.title;
+      node.querySelector('.project-desc').textContent = p.desc;
+      const [repoBtn, docsBtn] = node.querySelectorAll('.project-actions a');
+      repoBtn.href = p.repo;
+      repoBtn.textContent = p.repo === '#' ? 'Private' : 'Repo';
+      docsBtn.href = p.docs;
+      grid.appendChild(node);
+    });
+}
+renderProjects();
 
-      <div class="projects-list" id="projects-grid">
-        <!-- Cards will be rendered by script.js -->
-      </div>
-
-      <template id="project-card-template">
-        <article class="project-card" tabindex="0">
-          <div class="project-kicker"></div>
-          <h3 class="project-title"></h3>
-          <p class="project-desc"></p>
-          <div class="project-actions">
-            <a class="btn small" target="_blank" rel="noopener">Repo</a>
-            <a class="btn small outline" target="_blank" rel="noopener">Docs</a>
-          </div>
-        </article>
-      </template>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section contact reveal" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact Me</h2>
-      <p>
-        The best way to reach me is by email:
-        <a href="mailto:gcc@bath.ac.uk">gcc@bath.ac.uk</a>
-      </p>
-      <!-- Add LinkedIn / Scholar if you like -->
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Guillermo Comesaña. All rights reserved.</p>
-    <nav aria-label="Footer">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </footer>
-
-  <script src="script.js" type="module"></script>
-</body>
-</html>
+// Filters
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('is-active'));
+    chip.classList.add('is-active');
+    renderProjects(chip.dataset.filter);
+  });
+});
